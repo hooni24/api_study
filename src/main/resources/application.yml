@@ -1,0 +1,31 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:54321/inforex
+    username: inforex
+#    password: hy8375123
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    showSql: true
+    properties:
+      hibernate:
+        default_schema: restapi
+        hbm2ddl:
+          auto: update
+          # create 서버시작시 테이들 모두 생성
+          # create-drop 서버 시작시 모두 생성 / 종료시 모두 삭제
+          # update 시작시 Entity와 실제 테이블 비교해 update
+          # validate 시작시 비교하고, 다른경우 바로 종료
+          # none 아무 처리 하지 않음
+        temp:
+          use_jdbc_metadata_defaults: false
+          # java.lang.reflect.InvocationTargetException: null 에러 방지용.. 하이버네이트 버그라고 함
+
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+
+  jwt:
+    secret: sadjwqdj!#@(*hdnj21
